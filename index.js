@@ -12,6 +12,8 @@ app.use(cors({origin: 'http://localhost:4200'}));
 //Se cargan modulos de direccionamiento de rutas 
 
 app.use('/api/socio',require('./routes/p1/socio.route'));
+app.use('/api/transaccion',require('./routes/p2/transaccion.route'));
+
 
 //Setting 
 app.set('port', process.env.PORT || 3000);
