@@ -9,6 +9,13 @@ var app = express();
 app.use(express.json());
 app.use(cors({origin: 'http://localhost:4200'}));
 
+//cargamos swagger
+const swaggerUi = require('swagger-ui-express');
+const swaggerFile = require('./swagger_output.json'); // Asegúrate de que esta ruta sea correcta
+
+// ruta hacia la documentacion de swagger
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+
 //Se cargan modulos de direccionamiento de rutas 
 
 app.use('/api/socio',require('./routes/p1/socio.route'));

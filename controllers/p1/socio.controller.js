@@ -13,6 +13,16 @@ socioCtrl.getSocios = async (req, res) => {
 
     const socios = await Socio.find(filtro);
     */
+
+    /*
+#swagger.tags = ['Agentes']
+#swagger.summary = 'Obtener todos los agentes'
+#swagger.description = 'Retorna una lista de todos los agentes.'
+#swagger.responses[200] = {
+description: 'Lista de agentes obtenida con éxito.',
+schema: { $ref: '#/definitions/Agente' }
+}
+*/
     const socios = await Socio.find();
     res.status(200).json(socios);
 
