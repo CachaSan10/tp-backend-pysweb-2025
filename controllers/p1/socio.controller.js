@@ -3,7 +3,7 @@ const socioCtrl = {};
 
 socioCtrl.getSocios = async (req, res) => {
    try {
-    const activoQueryParam = req.query.activo;
+   /* const activoQueryParam = req.query.activo;
     
     let filtro = {};
     if (activoQueryParam !== undefined ) {
@@ -12,6 +12,8 @@ socioCtrl.getSocios = async (req, res) => {
     }
 
     const socios = await Socio.find(filtro);
+    */
+    const socios = await Socio.find();
     res.status(200).json(socios);
 
    } catch (error) {
@@ -21,6 +23,19 @@ socioCtrl.getSocios = async (req, res) => {
     })
    }
 }
+
+socioCtrl.getSociosActivo = async (req, res) => {
+    try {
+        const socios = await Socio.find({activo: true});
+        res.status(200).json(socios);
+    } catch (error) {
+        res.status(400).json({
+            'status': '0',
+            'msg': 'Error al obtener los socios'
+        })
+    }
+}
+
 
 socioCtrl.createSocio = async (req, res) => {
     var socio = new Socio(req.body);

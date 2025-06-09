@@ -13,6 +13,9 @@ app.use(cors({origin: 'http://localhost:4200'}));
 
 app.use('/api/socio',require('./routes/p1/socio.route'));
 app.use('/api/transaccion',require('./routes/p2/transaccion.route'));
+app.use('/api/empleado',require('./routes/p3/empleado.route'));
+app.use('/api/publicacion',require('./routes/p3/publicacion.route'));
+
 
 
 //Setting 

@@ -7,6 +7,7 @@ const router = express.Router()
 
 // definimos las rutas
 router.get('/', socioCtrl.getSocios);
+router.get('/filtro/activo', socioCtrl.getSociosActivo)
 router.post('/', socioCtrl.createSocio);
 
 router.put('/:id', socioCtrl.updateSocio);

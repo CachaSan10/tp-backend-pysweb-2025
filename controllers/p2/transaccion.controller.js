@@ -18,14 +18,21 @@ transaccionCtrl.createTransaccion = async (req, res) => {
     }
 
 transaccionCtrl.getTransacciones = async (req, res) => {
-    emailQueryParam = req.query.email;
+  
+    const transaccion = await Transaccion.find();
+    res.status(200).json(transaccion);
+}
+
+transaccionCtrl.getTransaccionesEmail = async (req, res) => {
+  emailQueryParam = req.query.email;
     let filtro = {};
     if (emailQueryParam !== undefined) {
        filtro = {emailCliente: emailQueryParam};
     }
     const transaccion = await Transaccion.find(filtro);
-    res.status(200).json(transaccion);
+   res.status(200).json(transaccion);
 }
+
 
  transaccionCtrl.getTransaccionesIdioma = async (req, res) => {
     idiomaParam = req.params.idioma;
